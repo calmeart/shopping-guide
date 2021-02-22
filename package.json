@@ -1,0 +1,18 @@
+{
+  "name": "shopping-guide",
+  "version": "1.0.0",
+  "description": "A shopping guide that tracks your shopping history",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Batuhan Doruk",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "read-excel-file": "^5.0.0"
+  }
+}
