@@ -7,6 +7,8 @@ const readXlFile = require('read-excel-file/node');
 
 app.set('view engine', 'ejs')
 
+require('./database/connection')();
+
 const dataApp = [];
 
 app.route('/')
