@@ -1,8 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const formidable = require('formidable');
-const readXlFile = require('read-excel-file/node');
+const excelParse = require('./middleware/excel-parse');
 
 
 app.set('view engine', 'ejs')
@@ -15,21 +14,8 @@ app.route('/')
   .get((req, res) => {
     res.render('home');
   })
-  .post((req, res) => {
-    const form = formidable({
-      multiples: true
-    });
-    form.parse(req, (err, fields, files) => {
-      if (err) {
-        next(err);
-        return;
-      }
-      res.json({fields, files});
-      console.log(files.someExpressFiles.path)
-      readXlFile(files.someExpressFiles.path).then((rows) => {
-        console.log(rows);
-      }).catch(err => console.log(err));
-    });
+  .post(excelParse, (req, res) => {
+    res.json(req.excelParsedData);
   });
 
 app.listen(process.env.PORT, () => {
