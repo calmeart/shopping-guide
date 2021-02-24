@@ -20,7 +20,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('/middleware/passport-config')();
+require('./middleware/passport-config')();
 require('./database/connection')();
 require('./routes/authentication')(app);
 
