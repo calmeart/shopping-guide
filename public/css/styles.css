@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+
+.centerPage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**************************HOME PAGE*****************************/
+
+#home {
+  text-align: center;
+}
+
+.logBox, .searchBox {
+  margin: 50px auto;
+  width: 60%;
+}
+
+.descriptionBox .card {
+  text-align: center;
+  width: 30%;
+}
+
+.descriptionBox i {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+/************************USER PAGE*********************************/
+
+#userPage {
+  padding: 7% 15%;
+}
+
+/************************PRODUCTS PAGE******************************/
+
+#newProduct {
+
+}
+
+
+
+.tableItem {
+  width: 100%;
+}

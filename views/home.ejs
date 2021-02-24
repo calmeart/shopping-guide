@@ -1,27 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include('partials/header') %>
 
-<head>
-  <meta charset="utf-8">
-  <title>Shopping Guide</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
+<div class="centerPage">
 
-<body>
-  <div class="container">
-    <h1>This is working</h1>
 
-    <form action="/products/excel" enctype="multipart/form-data" method="post">
-      <div class="input-group">
-        <input type="file" name="someExpressFiles" class="form-control" multiple="multiple" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+  <div id="home">
+    <div class="container">
+
+      <div id="heading">
+        <h1>Welcome to Shopping Guide</h1>
+        <p>Your custom made grocery tracking application designed for your convenience</p>
       </div>
-      <input class="btn btn-outline-secondary" type="submit" value="Upload" />
-    </form>
 
+      <div class="logBox">
+        <form action="/users" method="post">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="btn btn-primary my-3 w-100" type="submit" name="loginSubmit">Log In</button>
+        </form>
+      </div>
+
+      <div class="descriptionBox d-flex justify-content-around w-100">
+        <div class="card">
+          <i class="fas fa-shopping-cart"></i>
+          <h5>Track your shopping history</h5>
+          <p>A list of all your bought items are presented to you with a click of your mouse, sorted by their date, store, price. To ptovide you a layout of your history.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-wallet"></i>
+          <h5>The most updated prices</h5>
+          <p>See the latest prices anyone has paid to buy items. Prepare a gorcery list before going for shopping and see which goods are most affordable in which stores. </p>
+        </div>
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h5>Keep up with price changes</h5>
+          <p>Check an items purchase history to see the price change over certain amount of time.</p>
+        </div>
+      </div>
+
+      <div class="searchBox">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
   </div>
+</div>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-</body>
-
-</html>
+<%- include('partials/footer') %>

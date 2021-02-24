@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+<div id="newProduct">
+  <div class="container">
+    <div class="addProduct px-5 my-5 text-center">
+      <h5>Please Upload Your Excel File</h5>
+      <form action="/products/excel" enctype="multipart/form-data" method="post">
+        <div class="input-group">
+          <input type="file" name="someExpressFiles" class="form-control" multiple="multiple" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input class="btn btn-outline-secondary" type="submit" value="Upload" />
+        </div>
+
+      </form>
+    </div>
+    <div class="tempTable my-5">
+      <form class="table-responsive" action="index.html" method="post">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Product</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Store</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td><input class="tableItem" type="text" name="date" placeholder="2021-12-18"></td>
+              <td><input class="tableItem" type="text" name="product" placeholder="apple"></td>
+              <td><input class="tableItem" type="text" name="brand" placeholder="none"></td>
+              <td><input class="tableItem" type="text" name="unit_price" placeholder="1,66"></td>
+              <td><input class="tableItem" type="text" name="amount" placeholder="0,87"></td>
+              <td><input class="tableItem" type="text" name="total_price" placeholder="1,44"></td>
+              <td><input class="tableItem" type="text" name="store" placeholder="arsen"></td>
+              <td><input class="tableItem" type="text" name="address" placeholder="chornovola avenue"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>
