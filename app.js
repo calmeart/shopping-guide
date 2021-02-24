@@ -20,52 +20,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const User = require('./database/user-model');
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-
+require('/middleware/passport-config')();
 require('./database/connection')();
+require('./routes/authentication')(app);
 
 app.use('/products', productsRoute);
-
-
-app.route('/')
-  .get((req, res) => {
-    if (req.user) {
-      res.redirect('/users');
-      return;
-    }
-    res.render('home');
-  });
-
-app.route('/register')
-  .get((req, res) => {
-    res.render('register');
-  })
-  .post((req, res) => {
-    User.register(new User({
-      username: req.body.username,
-      accountType: "member"
-    }), req.body.password, function(err, result) {
-      if (err) {
-        return res.render('register');
-      }
-      passport.authenticate('local')(req, res, function() {
-        res.redirect('/users');
-      })
-    })
-  })
-
-app.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/users');
-});
-
-app.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/');
-});
 
 app.route('/users')
   .get((req, res) => {
@@ -74,12 +33,6 @@ app.route('/users')
     } else {
       res.redirect('/');
     }
-
-  });
-
-app.route('/testproducts')
-  .get((req, res) => {
-    res.render('product');
   });
 
 
