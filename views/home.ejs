@@ -12,17 +12,19 @@
       </div>
 
       <div class="logBox">
-        <form action="/users" method="post">
+        <form action="/login" method="post">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+            <input type="text" class="form-control" name="username" id="floatingInput" placeholder="Username">
             <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
           <button class="btn btn-primary my-3 w-100" type="submit" name="loginSubmit">Log In</button>
         </form>
+
+        <p><a class="coloredLink" href="/register">Click here </a>to create an account</p>
       </div>
 
       <div class="descriptionBox d-flex justify-content-around w-100">
