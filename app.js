@@ -30,8 +30,13 @@ require('./database/connection')();
 
 app.use('/products', productsRoute);
 
+
 app.route('/')
   .get((req, res) => {
+    if (req.user) {
+      res.redirect('/users');
+      return;
+    }
     res.render('home');
   });
 
@@ -54,7 +59,7 @@ app.route('/register')
   })
 
 app.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
+  res.redirect('/users');
 });
 
 app.get('/logout', function(req, res) {
@@ -64,7 +69,12 @@ app.get('/logout', function(req, res) {
 
 app.route('/users')
   .get((req, res) => {
-    res.render('users');
+    if (req.user) {
+      res.render('users', {userDetails: req.user});
+    } else {
+      res.redirect('/');
+    }
+
   });
 
 app.route('/testproducts')

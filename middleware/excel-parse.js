@@ -18,9 +18,9 @@ module.exports = (req, res, next) => {
           date: convertExcelDate(rows[i][1]),
           product: rows[i][2],
           brand: rows[i][3],
-          unit_price: rows[i][4],
+          unitPrice: rows[i][4],
           amount: rows[i][5],
-          total_price: rows[i][6],
+          totalPrice: rows[i][6],
           store: rows[i][7],
           address: rows[i][8]
         };

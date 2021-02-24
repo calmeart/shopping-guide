@@ -15,7 +15,7 @@
       </form>
     </div>
     <div class="tempTable my-5">
-      <form class="table-responsive" action="index.html" method="post">
+      <form class="table-responsive" action="/products/save" method="post">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -31,19 +31,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td><input class="tableItem" type="text" name="date" placeholder="2021-12-18"></td>
-              <td><input class="tableItem" type="text" name="product" placeholder="apple"></td>
-              <td><input class="tableItem" type="text" name="brand" placeholder="none"></td>
-              <td><input class="tableItem" type="text" name="unit_price" placeholder="1,66"></td>
-              <td><input class="tableItem" type="text" name="amount" placeholder="0,87"></td>
-              <td><input class="tableItem" type="text" name="total_price" placeholder="1,44"></td>
-              <td><input class="tableItem" type="text" name="store" placeholder="arsen"></td>
-              <td><input class="tableItem" type="text" name="address" placeholder="chornovola avenue"></td>
-            </tr>
+            <% draftProducts.forEach(item => { %>
+              <tr>
+                <th scope="row">1</th>
+                <td><input class="tableItem" type="text" name="date" placeholder="<%= item.date %>"></td>
+                <td><input class="tableItem" type="text" name="product" placeholder="<%= item.product %>"></td>
+                <td><input class="tableItem" type="text" name="brand" placeholder="<%= item.brand %>"></td>
+                <td><input class="tableItem" type="text" name="unitPrice" placeholder="<%= item.unitPrice %>"></td>
+                <td><input class="tableItem" type="text" name="amount" placeholder="<%= item.amount %>"></td>
+                <td><input class="tableItem" type="text" name="totalPrice" placeholder="<%= item.totalPrice %>"></td>
+                <td><input class="tableItem" type="text" name="store" placeholder="<%= item.store %>"></td>
+                <td><input class="tableItem" type="text" name="address" placeholder="<%= item.address %>"></td>
+              </tr>
+            <% }) %>
           </tbody>
         </table>
+        <button class="btn btn-secondary w-100 my-5" type="submit" name="saveDraft">Save to Database</button>
       </form>
     </div>
   </div>
