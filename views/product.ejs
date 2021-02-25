@@ -31,17 +31,17 @@
             </tr>
           </thead>
           <tbody>
-            <% draftProducts.forEach(item => { %>
+            <% draftProducts.forEach((item,idx) => { %>
               <tr>
-                <th scope="row">1</th>
-                <td><input class="tableItem" type="text" name="date" placeholder="<%= item.date %>"></td>
-                <td><input class="tableItem" type="text" name="product" placeholder="<%= item.product %>"></td>
-                <td><input class="tableItem" type="text" name="brand" placeholder="<%= item.brand %>"></td>
-                <td><input class="tableItem" type="text" name="unitPrice" placeholder="<%= item.unitPrice %>"></td>
-                <td><input class="tableItem" type="text" name="amount" placeholder="<%= item.amount %>"></td>
-                <td><input class="tableItem" type="text" name="totalPrice" placeholder="<%= item.totalPrice %>"></td>
-                <td><input class="tableItem" type="text" name="store" placeholder="<%= item.store %>"></td>
-                <td><input class="tableItem" type="text" name="address" placeholder="<%= item.address %>"></td>
+                <th scope="row"><%= idx + 1 %></th>
+                <td><input class="tableItem" type="text" name="date" value="<%= new Date(item.date).toISOString().split('T')[0] %>"></td>
+                <td><input class="tableItem" type="text" name="product" value="<%= item.product %>"></td>
+                <td><input class="tableItem" type="text" name="brand" value="<%= item.brand %>"></td>
+                <td><input class="tableItem" type="text" name="unitPrice" value="<%= item.unitPrice %>"></td>
+                <td><input class="tableItem" type="text" name="amount" value="<%= item.amount %>"></td>
+                <td><input class="tableItem" type="text" name="totalPrice" value="<%= item.totalPrice %>"></td>
+                <td><input class="tableItem" type="text" name="store" value="<%= item.store %>"></td>
+                <td><input class="tableItem" type="text" name="address" value="<%= item.address %>"></td>
               </tr>
             <% }) %>
           </tbody>

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const excelParse = require('../middleware/excel-parse');
+const excelArrange = require('../middleware/excel-rearrange');
 const Product = require('../database/product-model.js');
 const Temp = require('../database/temp-model');
 
@@ -24,10 +25,13 @@ router.post('/excel', excelParse, (req, res) => {
   res.redirect('/products/new');
 })
 
-router.post('/save', async (req, res) => {
-  console.log(req.body);
+router.post('/save', excelArrange, async (req, res) => {
   await Temp.deleteMany({});
-  res.redirect('/products/new');
+  req.productObjects.forEach(async object => {
+    const tempProduct = new Product(object);
+    await tempProduct.save();
+  });
+  res.redirect('/products');
 })
 
 module.exports = router;
