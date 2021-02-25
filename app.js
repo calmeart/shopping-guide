@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const excelParse = require('./middleware/excel-parse');
 const productsRoute = require('./routes/products');
+const usersRoute = require('./routes/users');
 
 const session = require('express-session');
 const passport = require('passport');
@@ -25,18 +26,7 @@ require('./database/connection')();
 require('./routes/authentication')(app);
 
 app.use('/products', productsRoute);
-
-app.route('/users')
-  .get((req, res) => {
-    if (req.user) {
-      res.render('users', {userDetails: req.user});
-    } else {
-      res.redirect('/');
-    }
-  });
-
-
-
+app.use('/users', usersRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is listening on port: ${process.env.PORT}`);
