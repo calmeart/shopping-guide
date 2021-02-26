@@ -6,13 +6,22 @@ const Product = require('../database/product-model.js');
 const Temp = require('../database/temp-model');
 
 router.get('/', async (req, res) => {
-  const products = await Product.find({});
-  res.json(products);
+  const foundProducts = await Product.find({});
+  res.render('products', {
+    foundProducts
+  });
 });
+
+router.get('/:product', async (req, res) => {
+  const foundProduct = await Product.find({product: req.params.product})
+  res.render('oneProduct', {
+    foundProduct
+  })
+})
 
 router.get('/new', async (req, res) => {
   const draftProducts = await Temp.find({});
-  res.render('product', {
+  res.render('newProduct', {
     draftProducts
   });
 })

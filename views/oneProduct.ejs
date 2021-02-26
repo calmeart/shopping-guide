@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+<div id="oneProduct">
+  <div class="container">
+    <div class="productHeaderBox">
+      <h1><%= foundProduct[0].product %></h1>
+    </div>
+    <div class="productDetailBox d-flex justify-content-between">
+      <div class="productFilterBox">
+        <form action="index.html" method="post">
+          <h5>Brands</h5>
+          <% foundProduct.forEach(product => { %>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <%= product.brand %>
+              </label>
+            </div>
+          <% }) %>
+          <h5>Stores</h5>
+          <% foundProduct.forEach(product => { %>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <%= product.store %>
+              </label>
+            </div>
+          <% }) %>
+        </form>
+      </div>
+      <div class="productTableBox">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Store</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% foundProduct.forEach(product => { %>
+                <tr>
+                  <td><%= new Date(product.date).toISOString().split('T')[0] %></td>
+                  <td><%= product.brand %></td>
+                  <td><%= product.unitPrice %></td>
+                  <td><%= product.store %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<%- include('partials/footer') %>

@@ -49,11 +49,36 @@
           </h2>
           <div id="collapse<%= idx %>" class="accordion-collapse collapse" aria-labelledby="heading<%= idx %>" data-bs-parent="#accordionDaily">
             <div class="accordion-body">
-              <% item.dateProducts.forEach(product => { %>
-                <div>
-                  <%= product %>
+
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Brand</th>
+                        <th class="productsHeader" scope="col">Unit Price</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">Store</th>
+                        <th class="productsHeader" scope="col">Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% item.dateProducts.forEach(product => { %>
+                      <tr>
+                        <td><a class="text-decoration-none" href="products/<%= product.product %>" target="_blank"><%= product.product %></a></td>
+                        <td><%= product.brand %></td>
+                        <td class="productsDetails"><%= product.unitPrice %></td>
+                        <td><%= product.amount %></td>
+                        <td><%= product.totalPrice %></td>
+                        <td><%= product.store %></td>
+                        <td class="productsDetails"><%= product.address %></td>
+                      </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
                 </div>
-              <% }) %>
+
             </div>
           </div>
         </div>

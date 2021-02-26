@@ -36,14 +36,23 @@ body {
   padding: 7% 15%;
 }
 
-/************************PRODUCTS PAGE******************************/
-
-#newProduct {
-
+.productsHeader {
+  color: white;
+  border-color: black !important;
 }
 
+.productsDetails {
+  color: transparent;
+}
 
+/************************PRODUCTS PAGE******************************/
 
 .tableItem {
   width: 100%;
+}
+
+/***********************ONE PRODUCT SECTION****************************/
+
+.productTableBox {
+  width: 80%;
 }
