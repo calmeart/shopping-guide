@@ -66,7 +66,7 @@
                     <tbody>
                       <% item.dateProducts.forEach(product => { %>
                       <tr>
-                        <td><a class="text-decoration-none" href="products/<%= product.product %>" target="_blank"><%= product.product %></a></td>
+                        <td><a class="text-decoration-none" href="products/product/<%= product.product %>" target="_blank"><%= product.product %></a></td>
                         <td><%= product.brand %></td>
                         <td class="productsDetails"><%= product.unitPrice %></td>
                         <td><%= product.amount %></td>

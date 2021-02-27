@@ -6,12 +6,12 @@
   <div class="container">
     <div class="productDetailBox d-flex justify-content-between">
       <div class="productFilterBox">
-        <form action="index.html" method="post">
+        <form action="/products" method="post">
           <h5>Products</h5>
           <% filterBox.uniqueProductArray.forEach(product => { %>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" name="productfilter" value="<%= product %>" id="flexCheck<%= product %>" onChange="this.form.submit()" checked>
+              <label class="form-check-label" for="flexCheck<%= product %>">
                 <%= product %>
               </label>
             </div>
@@ -19,8 +19,8 @@
           <h5>Brands</h5>
           <% filterBox.uniqueBrandArray.forEach(product => { %>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" name="brandfilter" value="<%= product %>" id="flexCheck<%= product %>" onChange="this.form.submit()" checked>
+              <label class="form-check-label" for="flexCheck<%= product %>">
                 <%= product %>
               </label>
             </div>
@@ -28,8 +28,8 @@
           <h5>Stores</h5>
           <% filterBox.uniqueStoreArray.forEach(product => { %>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" name="storefilter" value="<%= product %>" id="flexCheck<%= product %>" onChange="this.form.submit()" checked>
+              <label class="form-check-label" for="flexCheck<%= product %>">
                 <%= product %>
               </label>
             </div>

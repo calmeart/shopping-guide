@@ -5,8 +5,8 @@ module.exports = async (req, res, next) => {
     res.redirect('/');
     return;
   };
-  if (req.params.product) {
-    const promise = await Product.find({product: req.params.product});
+  if (req.params.productName) {
+    const promise = await Product.find({product: req.params.productName});
     const uniqueBrandArray = [];
     const uniqueStoreArray = [];
     promise.forEach(item => {
@@ -17,7 +17,8 @@ module.exports = async (req, res, next) => {
         uniqueStoreArray.push(item.store);
       };
     });
-    req.filterBoxArray = {uniqueBrandArray, uniqueStoreArray}
+    req.foundProduct = promise;
+    req.filterBoxArray = {uniqueBrandArray, uniqueStoreArray};
     next();
   } else {
     const promise = await Product.find({});
@@ -35,7 +36,8 @@ module.exports = async (req, res, next) => {
         uniqueStoreArray.push(item.store);
       };
     });
-    req.filterBoxArray = {uniqueProductArray, uniqueBrandArray, uniqueStoreArray}
+    req.foundProducts = promise;
+    req.filterBoxArray = {uniqueProductArray, uniqueBrandArray, uniqueStoreArray};
     next();
   }
 };

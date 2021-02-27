@@ -6,17 +6,15 @@ const filterBoxArrange = require('../middleware/arrangeFilterBox');
 const Product = require('../database/product-model.js');
 const Temp = require('../database/temp-model');
 
-router.get('/', filterBoxArrange, async (req, res) => {
-  const foundProducts = await Product.find({});
+router.get('/', filterBoxArrange, (req, res) => {
   res.render('products', {
-    foundProducts, filterBox: req.filterBoxArray
+    foundProducts: req.foundProducts, filterBox: req.filterBoxArray
   });
 });
 
-router.get('/:product',filterBoxArrange, async (req, res) => {
-  const foundProduct = await Product.find({product: req.params.product})
+router.get('/product/:productName',filterBoxArrange, (req, res) => {
   res.render('oneProduct', {
-    foundProduct, filterBox: req.filterBoxArray
+    foundProduct: req.foundProduct, filterBox: req.filterBoxArray
   });
 });
 
